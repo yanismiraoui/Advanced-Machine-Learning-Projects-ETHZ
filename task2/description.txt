@@ -1,0 +1,10 @@
+This submisson aims to solve Task 2 - Heart Rythm Classification. To solve this problem with the best score possible, we have mostly used Python with the lgbm, xgboost, catboost and sklearn libraries. 
+
+To pass the baseline and get the best result possible, we have followed the challenges put in the task description. 
+The first step to solve this task was to determine the optimal way to clean the dataset and extract the essential features. We have used the neurokit2 library to clean the ECG signal and we have scaled the data using MaxAbsScaler. To extract the essential features of the signal, we compute the R-peak locations and other important characteristics of the signal. 
+The next step was to use this cleaned and complete dataset to build a strong and performant model. We tried many different methods and models (XGBoost, LightGBM, AdaBoost, CatBoost, RandomForestClassifier, ExtraTreesClassifier, ...). The model that gave us the best result using CV was an Ensemble with XGBoost and LightGBM models. The CatBoost seemed to perform well on its own but it didn't improve much the F1 score of the ensemble.
+Moreover, we used BorutaShap in order to optimize the hyperparameters of these boosting algorithms.
+The best performing ensemble was computed by averaging the predictions probabilities of each model of the ensemble. 
+
+Our best result led to a score of 0.819205690575 on the public leaderboard.
+ 

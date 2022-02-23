@@ -1,0 +1,7 @@
+This submisson aims to solve Task 1 - Brain Age Prediction. To solve this problem with the best score possible, we have mostly used Python with the PyTorch, keras and sklearn libraries. 
+
+To pass the baseline and get the best result possible, we have followed the challenges put in the task description (imputation of missing values, outlier detection, feature selection, model selection). 
+The first step to solve this task was to determine the optimal way to impute missing values. We used simple techniques (median, mean, ...) but also more complex function for imputation (KNN Imputer). This more complex method seemed to give better results. 
+Moreover, we also used Isolation Forest and LocalOutlierFactor to detect the outliers in the dataset. As the last step of our preprocessing phase, we used SelectKBest to select the features that are the most important (~70 features). This function seemed to be more powerful than VarianceThreshold for example. 
+To predict the brain age based on these ~70 features, we tried to use very different models. We obtained that SVR, Light GBM but also Neural Networks gave pretty similar results in terms of r-squared. Therefore, to improve our r-squared score, we decided to take an Ensemble of these models by averaging the predictions of these different models.
+Our best result led to a score of 0.732553860839 on the public leaderboard.

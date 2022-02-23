@@ -1,0 +1,8 @@
+This submission aims to solve Task 3 - Mitral valve segmentation. To solve this problem with the best score possible, we have mostly used Python with the sklearn, keras and cv2 libraries. 
+
+The first step to solve this task was to load and clean the dataset. We have used cv2.resize() in order to reshape all the videos to size (112, 112). As our training dataset is quite small, we utilized ImageDataGenerator from the keras library to augment our dataset by performing some image transformations (horizontal flips, rotations, ...).
+
+The next step was to use this cleaned and complete dataset to build a strong and performant model. We built a U-Net model with 200 epochs and a batch size of 32. We also used as our loss the Jaccard loss and as out testing metric the Jaccard similarity.
+Moreover, we also tried to improve our performance by computing bounding boxes using ResNet. Unfortunately, this additional technique did not improve our results on the validation set. 
+Our best result led to a score of 0.470667481063 on the public leaderboard.
+ 
